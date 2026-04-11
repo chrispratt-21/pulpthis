@@ -10,102 +10,63 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --navy: #1B3868; --teal: #15515a; --sand: #f5f0e8; --white: #ffffff; --gray: #6b7280; --text: #1a1a2e; }
     body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); }
-
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 60px;
-      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06); }
     .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); text-decoration: none; }
     .nav-back { font-size: 0.85rem; font-weight: 500; color: var(--gray); text-decoration: none; transition: color 0.2s; }
     .nav-back:hover { color: var(--navy); }
-
     .page-header { background: var(--navy); padding: 120px 60px 60px; }
     .page-header p { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
     .page-header h1 { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--white); margin-bottom: 12px; }
     .page-header .effective { font-size: 0.875rem; color: rgba(255,255,255,0.55); }
-
     .content { max-width: 760px; margin: 0 auto; padding: 72px 60px; }
-    .content h2 {
-      font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
-      color: var(--navy); margin-top: 52px; margin-bottom: 16px;
-      padding-bottom: 10px; border-bottom: 1px solid #e5e7eb;
-    }
+    .content h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: var(--navy); margin-top: 52px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #e5e7eb; }
     .content h2:first-child { margin-top: 0; }
     .content p { font-size: 0.975rem; font-weight: 300; color: #374151; line-height: 1.85; margin-bottom: 16px; }
     .content ul { margin: 12px 0 20px 20px; }
     .content ul li { font-size: 0.975rem; font-weight: 300; color: #374151; line-height: 1.85; margin-bottom: 8px; }
-
-    .highlight-box {
-      background: var(--sand); border-left: 4px solid var(--navy);
-      padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 24px 0;
-    }
+    .content a { color: var(--teal); }
+    .highlight-box { background: var(--sand); border-left: 4px solid var(--navy); padding: 20px 24px; border-radius: 0 6px 6px 0; margin: 24px 0; }
     .highlight-box p { margin-bottom: 0; font-weight: 400; }
-
-    .contact-box {
-      background: var(--teal); color: var(--white);
-      padding: 36px; border-radius: 8px; margin-top: 52px;
-    }
+    .contact-box { background: var(--teal); color: var(--white); padding: 36px; border-radius: 8px; margin-top: 52px; }
     .contact-box h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--white); margin-bottom: 12px; }
     .contact-box p { color: rgba(255,255,255,0.7); margin-bottom: 8px; }
     .contact-box a { color: rgba(255,255,255,0.9); }
-
-    footer {
-      background: var(--text); padding: 40px 60px;
-      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
-    }
+    footer { background: var(--text); padding: 40px 60px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
     .footer-logo { font-family: 'Playfair Display', serif; font-size: 0.95rem; color: rgba(255,255,255,0.6); }
     .footer-links { display: flex; gap: 24px; list-style: none; }
     .footer-links a { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: rgba(255,255,255,0.8); }
     .footer-copy { font-size: 0.75rem; color: rgba(255,255,255,0.25); width: 100%; text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); margin-top: 8px; }
-
-    @media (max-width: 768px) {
-      nav { padding: 16px 24px; }
-      .page-header { padding: 100px 24px 48px; }
-      .page-header h1 { font-size: 2rem; }
-      .content { padding: 48px 24px; }
-      footer { padding: 36px 24px; flex-direction: column; }
-    }
+    @media (max-width: 768px) { nav { padding: 16px 24px; } .page-header { padding: 100px 24px 48px; } .page-header h1 { font-size: 2rem; } .content { padding: 48px 24px; } footer { padding: 36px 24px; flex-direction: column; } }
   </style>
 </head>
 <body>
-
   <nav>
-    <a href="/" class="nav-logo">Fletcher Street</a>
-    <a href="/pulp" class="nav-back">← Pulp</a>
+    <a href="https://pulpthis.com" class="nav-logo">Pulp</a>
+    <a href="https://pulpthis.com" class="nav-back">← Back to Pulp</a>
   </nav>
-
   <div class="page-header">
     <p>Pulp · Legal</p>
     <h1>Terms of Service</h1>
     <p class="effective">Effective Date: April 8, 2026 · Last Updated: April 8, 2026</p>
   </div>
-
   <div class="content">
-
     <h2>1. Agreement to Terms</h2>
     <p>These Terms of Service ("Terms") govern your use of the Pulp mobile application ("Pulp" or the "App"), operated by Fletcher Street Corporation, a Delaware C-Corporation ("Fletcher Street," "we," "us," or "our").</p>
     <p>By downloading or using Pulp, you agree to be bound by these Terms. If you do not agree to these Terms, do not use the App.</p>
-
     <h2>2. Eligibility</h2>
     <p>You must be at least 18 years of age to use Pulp. By using the App, you represent and warrant that you are 18 years of age or older and have the legal capacity to enter into these Terms.</p>
     <p>You must reside in the United States and provide a valid U.S. mailing address to use Pulp.</p>
-
     <h2>3. Your Account</h2>
     <p>Pulp accounts are created using your phone number, verified via SMS one-time passcode. You are responsible for maintaining the security of your phone and your account.</p>
     <p>You agree to provide accurate information during registration, including your full legal name and current home mailing address. Submitting false or fraudulent address information is a violation of these Terms and may result in account termination.</p>
     <p>You may only create one account per phone number. Duplicate accounts are prohibited.</p>
-
     <h2>4. How Pulp Works — What We Do and Don't Promise</h2>
     <p>Pulp allows you to photograph physical mail you receive and submit an opt-out request through the App. We will use commercially reasonable efforts to identify the mailer and contact them on your behalf to request removal from their mailing list.</p>
     <div class="highlight-box">
       <p><strong>Important:</strong> We cannot guarantee that any mailer will honor your opt-out request. There is no federal law requiring direct mail companies to comply with opt-out requests, and mailers are not legally obligated to respond to or honor requests submitted through Pulp. Results will vary.</p>
     </div>
     <p>Pulp is a best-effort advocacy service. We are not a legal service and we make no warranties, express or implied, regarding the effectiveness of any opt-out request.</p>
-
     <h2>5. Your Submissions</h2>
     <p>By submitting photos and feedback through Pulp, you grant Fletcher Street Corporation a non-exclusive, royalty-free license to use that content for the purposes described in our Privacy Policy, including classifying the submission, identifying the mailer, and contacting the mailer on your behalf.</p>
     <p>You represent and warrant that:</p>
@@ -116,9 +77,7 @@
       <li>You will not attempt to game, manipulate, or abuse the submission system</li>
     </ul>
     <p>We reserve the right to discard any submission that does not meet our quality standards or that we determine to be fraudulent or abusive.</p>
-
     <h2>6. Prohibited Conduct</h2>
-    <p>You agree not to:</p>
     <ul>
       <li>Submit fraudulent, false, or misleading information</li>
       <li>Submit photos of mail belonging to addresses other than your registered household</li>
@@ -127,57 +86,44 @@
       <li>Create multiple accounts to circumvent limitations</li>
       <li>Interfere with the operation of the App or its infrastructure</li>
     </ul>
-
     <h2>7. Intellectual Property</h2>
     <p>All content, design, code, and materials within the Pulp App are the property of Fletcher Street Corporation and are protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any part of the App without our express written permission.</p>
     <p>The name "Pulp," the Pulp logo, and associated brand assets are trademarks of Fletcher Street Corporation.</p>
-
     <h2>8. Privacy</h2>
-    <p>Your use of Pulp is also governed by our <a href="/pulp/privacy-policy">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review our Privacy Policy carefully.</p>
-
+    <p>Your use of Pulp is also governed by our <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>, which is incorporated into these Terms by reference. Please review our Privacy Policy carefully.</p>
     <h2>9. Disclaimers</h2>
     <p>PULP IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. FLETCHER STREET CORPORATION DISCLAIMS ALL WARRANTIES, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
     <p>We do not warrant that the App will be uninterrupted, error-free, or free of viruses or other harmful components. We do not warrant that any opt-out request submitted through Pulp will result in the cessation of mail from any particular mailer.</p>
-
     <h2>10. Limitation of Liability</h2>
     <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, FLETCHER STREET CORPORATION SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATED TO YOUR USE OF PULP, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</p>
     <p>OUR TOTAL LIABILITY TO YOU FOR ANY CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF PULP SHALL NOT EXCEED $100.</p>
-
     <h2>11. Indemnification</h2>
     <p>You agree to indemnify, defend, and hold harmless Fletcher Street Corporation and its officers, directors, employees, and agents from and against any claims, damages, losses, liabilities, and expenses (including reasonable attorneys' fees) arising out of or related to your use of Pulp, your violation of these Terms, or your violation of any third-party rights.</p>
-
     <h2>12. Termination</h2>
     <p>We reserve the right to suspend or terminate your account at any time, with or without notice, for any violation of these Terms or for any other reason at our sole discretion.</p>
     <p>You may delete your account at any time by contacting us at <a href="mailto:cpratt@thefletcherstreet.com">cpratt@thefletcherstreet.com</a>. Upon deletion, your personal information will be removed in accordance with our Privacy Policy.</p>
-
     <h2>13. Changes to These Terms</h2>
     <p>We may update these Terms from time to time. When we do, we will update the "Last Updated" date at the top of this page. If changes are material, we will notify you via SMS or in-app notification. Your continued use of Pulp after changes are posted constitutes your acceptance of the updated Terms.</p>
-
     <h2>14. Governing Law and Dispute Resolution</h2>
     <p>These Terms are governed by the laws of the State of Indiana, without regard to its conflict of law provisions. Any dispute arising out of or relating to these Terms or your use of Pulp shall be resolved exclusively in the state or federal courts located in Indiana, and you consent to personal jurisdiction in those courts.</p>
-
     <h2>15. Entire Agreement</h2>
     <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Fletcher Street Corporation regarding your use of Pulp and supersede all prior agreements and understandings.</p>
-
     <div class="contact-box">
       <h3>Contact Us</h3>
       <p>Questions about these Terms? Contact us at:</p>
       <p><strong>Fletcher Street Corporation</strong></p>
       <p>Email: <a href="mailto:cpratt@thefletcherstreet.com">cpratt@thefletcherstreet.com</a></p>
-      <p>Website: <a href="https://thefletcherstreet.com">thefletcherstreet.com</a></p>
+      <p>Website: <a href="https://pulpthis.com">pulpthis.com</a></p>
     </div>
-
   </div>
-
   <footer>
-    <div class="footer-logo">Fletcher Street Corporation</div>
+    <div class="footer-logo">Pulp by Fletcher Street Corporation</div>
     <ul class="footer-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/pulp">Pulp</a></li>
-      <li><a href="/pulp/privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://pulpthis.com">Home</a></li>
+      <li><a href="https://pulpthis.com/privacy-policy">Privacy Policy</a></li>
+      <li><a href="https://thefletcherstreet.com">Fletcher Street</a></li>
     </ul>
-    <p class="footer-copy">© 2024–2026 Fletcher Street Corporation. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
