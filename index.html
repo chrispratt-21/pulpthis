@@ -507,8 +507,8 @@
         <em>your mailbox.</em>
       </h1>
       <p class="hero-sub">
-        Mailboxes are overflowing! Snape a photo of your junk mail and we'll contact the mailer to get you off the list. 	Results do vary, but let's see what we can do!
-        
+        Snap a photo of your junk mail. We'll handle the rest.
+        Results do vary, but at least you tried.
       </p>
       <div class="hero-cta">
         <div class="store-buttons">
@@ -592,20 +592,22 @@
     <p class="section-label">Early Access</p>
     <h2 class="section-title">Be first in line.</h2>
     <p style="color: var(--grey); font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.65; font-weight: 300;">
-      Pulp is launching soon. Drop your email and we'll let you know the moment it's available.
+      Pulp is launching soon. Drop your phone number and we'll let you know the moment it's available.
     </p>
     <form class="waitlist-form" id="waitlistForm">
       <input
-        type="email"
+        type="tel"
         class="waitlist-input"
-        placeholder="your@email.com"
+        placeholder="(317) 555-0100"
         required
-        id="emailInput"
+        id="phoneInput"
+        maxlength="14"
       />
-      <button type="submit" class="waitlist-submit">Notify Me</button>
+      <button type="submit" class="waitlist-submit" id="submitBtn">Notify Me</button>
     </form>
-    <p class="waitlist-fine">No spam. We promise — that's kind of our thing.</p>
-    <p class="waitlist-success" id="successMsg">✓ You're on the list. We'll be in touch.</p>
+    <p class="waitlist-fine">US numbers only. No spam — that's kind of our thing.</p>
+    <p class="waitlist-success" id="successMsg"></p>
+    <p class="waitlist-error" id="errorMsg" style="display:none; margin-top:14px; font-size:0.78rem; color:#dc2626;"></p>
   </section>
 
   <!-- DISCLOSURE -->
@@ -635,13 +637,96 @@
   </footer>
 
   <script>
-    document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+    const SUPABASE_URL = 'https://igpyenjxzwkibkbpnpwu.supabase.co'
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlncHllbmp4endraWJrYnBucHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQxMzE5NzgsImV4cCI6MjA1OTcwNzk3OH0.M0pGsKxQfUvGQ1LmJdABpzLkTBZO55mj0QWKm53PdLo'
+
+    // Format phone number as user types
+    const phoneInput = document.getElementById('phoneInput')
+    phoneInput.addEventListener('input', function(e) {
+      let val = e.target.value.replace(/\D/g, '')
+      if (val.length > 10) val = val.slice(0, 10)
+      if (val.length >= 7) {
+        val = '(' + val.slice(0,3) + ') ' + val.slice(3,6) + '-' + val.slice(6)
+      } else if (val.length >= 4) {
+        val = '(' + val.slice(0,3) + ') ' + val.slice(3)
+      } else if (val.length >= 1) {
+        val = '(' + val
+      }
+      e.target.value = val
+    })
+
+    let cooldown = false
+
+    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
       e.preventDefault()
-      const email = document.getElementById('emailInput').value
-      // Store email — replace with your actual form handler or Supabase call
-      console.log('Waitlist signup:', email)
-      document.getElementById('waitlistForm').style.display = 'none'
-      document.getElementById('successMsg').style.display = 'block'
+
+      if (cooldown) return
+
+      const btn = document.getElementById('submitBtn')
+      const successMsg = document.getElementById('successMsg')
+      const errorMsg = document.getElementById('errorMsg')
+      const rawPhone = phoneInput.value.replace(/\D/g, '')
+
+      // Validate 10 digits
+      if (rawPhone.length !== 10) {
+        errorMsg.textContent = 'Please enter a valid 10-digit US phone number.'
+        errorMsg.style.display = 'block'
+        return
+      }
+
+      const e164Phone = '+1' + rawPhone
+
+      // Disable button and start cooldown
+      cooldown = true
+      btn.disabled = true
+      btn.textContent = 'Saving...'
+      errorMsg.style.display = 'none'
+
+      try {
+        const response = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({ phone: e164Phone })
+        })
+
+        if (response.status === 201) {
+          // Success
+          document.getElementById('waitlistForm').style.display = 'none'
+          successMsg.textContent = '✓ You're on the list. We'll be in touch.'
+          successMsg.style.display = 'block'
+        } else if (response.status === 409) {
+          // Duplicate
+          errorMsg.textContent = 'That number is already on the list — you're all set!'
+          errorMsg.style.display = 'block'
+          btn.disabled = false
+          btn.textContent = 'Notify Me'
+          cooldown = false
+        } else {
+          throw new Error('Unexpected response: ' + response.status)
+        }
+      } catch (err) {
+        console.error('Waitlist error:', err)
+        errorMsg.textContent = 'Something went wrong. Please try again.'
+        errorMsg.style.display = 'block'
+        btn.disabled = false
+        btn.textContent = 'Notify Me'
+        // 30 second cooldown on error
+        setTimeout(() => { cooldown = false }, 30000)
+      }
+
+      // Always enforce 30 second cooldown between submissions
+      setTimeout(() => {
+        cooldown = false
+        if (!btn.disabled) {
+          btn.disabled = false
+          btn.textContent = 'Notify Me'
+        }
+      }, 30000)
     })
 
     // Smooth scroll for anchor links
