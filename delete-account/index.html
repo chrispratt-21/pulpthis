@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Your Account — Pulp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #1B3868;
+      --teal: #15515a;
+      --teal-light: #1a6b76;
+      --bg: #f7f8fa;
+      --white: #ffffff;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --red: #dc2626;
+      --red-bg: #fef2f2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: var(--navy);
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-emoji {
+      font-size: 22px;
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    main {
+      flex: 1;
+      max-width: 640px;
+      margin: 60px auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .icon-wrap {
+      width: 64px;
+      height: 64px;
+      background-color: var(--red-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .data-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .data-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .data-list li::before {
+      content: '✓';
+      color: var(--teal);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .warning-card {
+      background: var(--red-bg);
+      border: 1px solid #fecaca;
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .warning-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .warning-text {
+      font-size: 0.875rem;
+      color: var(--red);
+      line-height: 1.5;
+      font-weight: 500;
+    }
+
+    .cta-section {
+      text-align: center;
+    }
+
+    .cta-label {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .email-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--teal);
+      color: #fff;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: background-color 0.15s;
+    }
+
+    .email-button:hover {
+      background-color: var(--teal-light);
+    }
+
+    .email-address {
+      display: block;
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 40px 0;
+    }
+
+    .note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px;
+      font-size: 0.78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: var(--white);
+    }
+
+    footer a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        margin: 40px auto;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://pulpthis.com" class="logo">
+      <span class="logo-emoji">📬</span>
+      <span class="logo-text">Pulp</span>
+    </a>
+  </header>
+
+  <main>
+    <div class="icon-wrap">🗑️</div>
+    <h1>Delete Your Account</h1>
+    <p class="subtitle">We're sorry to see you go. You can request deletion of your Pulp account and all associated data by emailing us directly.</p>
+
+    <div class="card">
+      <h2>What gets deleted</h2>
+      <ul class="data-list">
+        <li>Your account and phone number</li>
+        <li>Your household address</li>
+        <li>All mail submissions and opt-out records</li>
+        <li>Any photos associated with your submissions</li>
+        <li>All personal suppression data tied to your account</li>
+      </ul>
+    </div>
+
+    <div class="warning-card">
+      <span class="warning-icon">⚠️</span>
+      <p class="warning-text">Account deletion is permanent and cannot be undone. Your opt-out history will be lost and cannot be recovered.</p>
+    </div>
+
+    <div class="cta-section">
+      <p class="cta-label">To request deletion, send an email from the phone number associated with your account. We'll process your request within 7 business days.</p>
+      <a href="mailto:chrispratt1720@gmail.com?subject=Account%20Deletion%20Request%20%E2%80%94%20Pulp&body=Please%20delete%20my%20Pulp%20account%20and%20all%20associated%20data.%0A%0AMy%20phone%20number%3A%20%5Benter%20your%20phone%20number%5D" class="email-button">
+        ✉️ Request Account Deletion
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <p class="note">For questions about your data or our privacy practices, visit our <a href="https://pulpthis.com/privacy-policy" style="color: var(--teal);">Privacy Policy</a>. Pulp is a product of Fletcher Street Corporation, Fishers, Indiana.</p>
+  </main>
+
+  <footer>
+    <a href="https://pulpthis.com">pulpthis.com</a> &nbsp;·&nbsp;
+    <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a> &nbsp;·&nbsp;
+    <a href="https://pulpthis.com/terms-of-service">Terms of Service</a> &nbsp;·&nbsp;
+    © 2026 Fletcher Street Corporation
+  </footer>
+
+</body>
+</html>
