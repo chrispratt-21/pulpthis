@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pulp — Take Back Your Mailbox</title>
+  <title>Pulp&#x2122; — Take Back Your Mailbox</title>
   <meta name="description" content="Snap a photo of your junk mail. We'll handle the rest. Results do vary, but at least you tried.">
-  <meta property="og:title" content="Pulp — Take Back Your Mailbox">
+  <meta property="og:title" content="Pulp&#x2122; — Take Back Your Mailbox">
   <meta property="og:description" content="Snap a photo of your junk mail. We'll handle the rest.">
   <meta property="og:image" content="https://pulpthis.com/og-image.png">
   <meta property="og:url" content="https://pulpthis.com">
@@ -494,7 +494,7 @@
     <nav>
       <a href="https://thefletcherstreet.com" class="nav-logo">
         <span class="nav-logo-icon">📬</span>
-        <span class="nav-logo-text">Pulp</span>
+        <span class="nav-logo-text">Pulp&#x2122;</span>
       </a>
       <a href="#waitlist" class="nav-link">Get Early Access</a>
     </nav>
@@ -508,7 +508,7 @@
       </h1>
       <p class="hero-sub">
         Just like email, our real mailboxes are overflowing! Snap a photo of your physical junk mail and we'll contact the mailer to get you off the list.
-	Results vary, but let's make our voices heard!
+        Results vary, but let's make our voices heard!
       </p>
       <div class="hero-cta">
         <div class="store-buttons">
@@ -520,17 +520,16 @@
             </span>
             <span class="coming-soon-badge">Soon</span>
           </a>
-          <a href="#waitlist" class="store-btn store-btn-secondary">
+          <a href="https://play.google.com/store/apps/details?id=com.fletcherstreet.pulp" id="googlePlayBtn" class="store-btn store-btn-secondary">
             <span class="store-btn-icon">▶</span>
             <span class="store-btn-label">
               <small>Get it on</small>
               <span>Google Play</span>
             </span>
-            <span class="coming-soon-badge">Soon</span>
           </a>
         </div>
         <p class="waitlist-note">
-          Not on the stores yet — <a href="#waitlist">join the waitlist</a> for early access.
+          iOS coming soon — <a href="#waitlist">join the waitlist</a> for early access.
         </p>
       </div>
     </div>
@@ -544,7 +543,7 @@
       <div class="step">
         <div class="step-number">1</div>
         <div class="step-title">Snap a photo</div>
-        <p class="step-desc">Open Pulp and photograph the front and back of any piece of junk mail. Takes about 10 seconds.</p>
+        <p class="step-desc">Open Pulp&#x2122; and photograph the front and back of any piece of junk mail. Takes about 10 seconds.</p>
       </div>
       <div class="step">
         <div class="step-number">2</div>
@@ -561,7 +560,7 @@
 
   <!-- WHY PULP -->
   <section class="why">
-    <p class="section-label">Why Pulp</p>
+    <p class="section-label">Why Pulp&#x2122;</p>
     <h2 class="section-title">Your mailbox.<br>Your rules.</h2>
     <div class="why-grid">
       <div class="why-card">
@@ -592,7 +591,7 @@
     <p class="section-label">Early Access</p>
     <h2 class="section-title">Be first in line.</h2>
     <p style="color: var(--grey); font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.65; font-weight: 300;">
-      Pulp is launching soon. Drop your phone number and we'll let you know the moment it's available.
+      Pulp&#x2122; is coming soon to iOS. Drop your phone number and we'll let you know the moment it's available.
     </p>
     <form class="waitlist-form" id="waitlistForm">
       <input
@@ -626,19 +625,26 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <span>📬</span> Pulp
+      <span>📬</span> Pulp&#x2122;
     </div>
     <div class="footer-links">
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
       <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>
       <a href="https://pulpthis.com/terms-of-service">Terms of Service</a>
     </div>
-    <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved.</p>
+    <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
   </footer>
 
   <script>
     var SUPABASE_URL = 'https://igpyenjxzwkibkbpnpwu.supabase.co';
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlncHllbmp4endraWJrYnBucHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzY1MDcsImV4cCI6MjA5MTIxMjUwN30.m_LeOEm5ikt6HCFIyxYh4CJgDPM38m0maFxZ0ayANOo';
+
+    // On mobile, deep-link directly into the Play Store app
+    var googlePlayBtn = document.getElementById('googlePlayBtn');
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isMobile && /Android/i.test(navigator.userAgent)) {
+      googlePlayBtn.href = 'market://details?id=com.fletcherstreet.pulp';
+    }
 
     function formatPhone(val) {
       val = val.replace(/[^0-9]/g, '');
