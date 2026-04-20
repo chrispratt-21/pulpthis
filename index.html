@@ -37,6 +37,15 @@
       overflow-x: hidden;
     }
 
+    .tm {
+      font-size: 0.6em;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
@@ -494,7 +503,7 @@
     <nav>
       <a href="https://thefletcherstreet.com" class="nav-logo">
         <span class="nav-logo-icon">📬</span>
-        <span class="nav-logo-text">Pulp&#x2122;</span>
+        <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
       </a>
       <a href="#waitlist" class="nav-link">Get Early Access</a>
     </nav>
@@ -625,7 +634,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <span>📬</span> Pulp&#x2122;
+      <span>📬</span> Pulp<sup class="tm">&#x2122;</sup>
     </div>
     <div class="footer-links">
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
@@ -641,8 +650,7 @@
 
     // On mobile, deep-link directly into the Play Store app
     var googlePlayBtn = document.getElementById('googlePlayBtn');
-    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    if (isMobile && /Android/i.test(navigator.userAgent)) {
+    if (/Android/i.test(navigator.userAgent)) {
       googlePlayBtn.href = 'market://details?id=com.fletcherstreet.pulp';
     }
 
@@ -661,7 +669,6 @@
 
     var phoneInput = document.getElementById('phoneInput');
     phoneInput.addEventListener('input', function(e) {
-      var pos = e.target.selectionStart;
       e.target.value = formatPhone(e.target.value);
     });
 
