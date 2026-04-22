@@ -187,71 +187,7 @@
       gap: 12px;
       flex-wrap: wrap;
       justify-content: center;
-    }
-
-    .store-btn {
-      display: flex;
       align-items: center;
-      gap: 10px;
-      padding: 13px 22px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      transition: all 0.2s;
-      position: relative;
-    }
-
-    .store-btn-primary {
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    .store-btn-primary:hover {
-      background: #f0f0f0;
-      transform: translateY(-2px);
-    }
-
-    .store-btn-secondary {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-
-    .store-btn-secondary:hover {
-      background: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
-    }
-
-    .store-btn-icon { font-size: 1.3rem; }
-
-    .store-btn-label { display: flex; flex-direction: column; text-align: left; }
-    .store-btn-label small { font-size: 0.65rem; opacity: 0.7; font-weight: 400; line-height: 1; }
-    .store-btn-label span { font-size: 0.9rem; font-weight: 600; line-height: 1.3; }
-
-    .coming-soon-badge {
-      position: absolute;
-      top: -8px;
-      right: -8px;
-      background: var(--teal);
-      color: white;
-      font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
-    .waitlist-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .waitlist-note a {
-      color: rgba(255,255,255,0.6);
-      text-decoration: underline;
-      text-underline-offset: 3px;
     }
 
     /* ── HOW IT WORKS ── */
@@ -342,9 +278,7 @@
     }
 
     @media (max-width: 768px) {
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
+      .why-grid { grid-template-columns: 1fr; }
     }
 
     .why-card {
@@ -375,25 +309,25 @@
       font-weight: 300;
     }
 
-    /* ── WAITLIST ── */
-    .waitlist {
+    /* ── NEWSLETTER ── */
+    .newsletter {
       background: var(--cream);
       padding: 120px 32px;
       text-align: center;
     }
 
-    .waitlist-form {
+    .newsletter-form {
       display: flex;
       gap: 12px;
-      max-width: 440px;
+      max-width: 480px;
       margin: 40px auto 0;
       flex-wrap: wrap;
       justify-content: center;
     }
 
-    .waitlist-input {
+    .newsletter-input {
       flex: 1;
-      min-width: 220px;
+      min-width: 240px;
       padding: 14px 20px;
       border: 1.5px solid var(--light-grey);
       border-radius: 10px;
@@ -405,10 +339,10 @@
       transition: border-color 0.2s;
     }
 
-    .waitlist-input:focus { border-color: var(--teal); }
-    .waitlist-input::placeholder { color: #9ca3af; }
+    .newsletter-input:focus { border-color: var(--teal); }
+    .newsletter-input::placeholder { color: #9ca3af; }
 
-    .waitlist-submit {
+    .newsletter-submit {
       padding: 14px 28px;
       background: var(--teal);
       color: var(--white);
@@ -422,18 +356,18 @@
       white-space: nowrap;
     }
 
-    .waitlist-submit:hover {
+    .newsletter-submit:hover {
       background: var(--teal-light);
       transform: translateY(-1px);
     }
 
-    .waitlist-fine {
+    .newsletter-fine {
       margin-top: 14px;
       font-size: 0.75rem;
       color: #9ca3af;
     }
 
-    .waitlist-success {
+    .newsletter-success {
       display: none;
       margin-top: 20px;
       font-size: 0.95rem;
@@ -492,7 +426,7 @@
       nav { padding: 20px 24px; }
       .hero-content { padding: 60px 24px 100px; }
       .store-buttons { flex-direction: column; align-items: center; }
-      .how, .why, .waitlist { padding: 80px 24px; }
+      .how, .why, .newsletter { padding: 80px 24px; }
     }
   </style>
 </head>
@@ -505,7 +439,7 @@
         <span class="nav-logo-icon">📬</span>
         <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
       </a>
-      <a href="#download" class="nav-link">Download</a>
+      <a href="#newsletter" class="nav-link">Stay in the Loop</a>
     </nav>
 
     <div class="hero-content">
@@ -521,14 +455,13 @@
       </p>
       <div class="hero-cta">
         <div class="store-buttons">
-          <a href="https://apps.apple.com/us/app/pulp-stop-junk-mail/id6762067212" id="appStoreBtn" style="display:block; transition: opacity 0.2s; opacity:1;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <a href="https://apps.apple.com/us/app/pulp-stop-junk-mail/id6762067212" id="appStoreBtn" style="display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
             <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:44px; display:block;">
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.fletcherstreet.pulp" id="googlePlayBtn" style="display:block; transition: opacity 0.2s; opacity:1;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <a href="https://play.google.com/store/apps/details?id=com.fletcherstreet.pulp" id="googlePlayBtn" style="display:block; transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
             <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:58px; margin-top:-7px; display:block;">
           </a>
         </div>
-
       </div>
     </div>
   </section>
@@ -584,27 +517,26 @@
     </div>
   </section>
 
-  <!-- DOWNLOAD -->
-  <section class="waitlist" id="download">
-    <p class="section-label">Available Now</p>
-    <h2 class="section-title">Download Pulp&#x2122;.</h2>
-    <p style="color: var(--grey); font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.65; font-weight: 300;">
-      Available on iPhone and Android. Free to download.
+  <!-- NEWSLETTER -->
+  <section class="newsletter" id="newsletter">
+    <p class="section-label">Stay in the Loop</p>
+    <h2 class="section-title">The Pulp Report.</h2>
+    <p style="color: var(--grey); font-size: 0.95rem; max-width: 440px; margin: 0 auto; line-height: 1.65; font-weight: 300;">
+      Occasional updates on your mailbox, the mailers behind it, and what we're building.
     </p>
-    <form class="waitlist-form" id="waitlistForm">
+    <form class="newsletter-form" id="newsletterForm">
       <input
-        type="tel"
-        class="waitlist-input"
-        placeholder="(317) 555-0100"
+        type="email"
+        class="newsletter-input"
+        placeholder="you@example.com"
         required
-        id="phoneInput"
-        maxlength="14"
+        id="emailInput"
       />
-      <button type="submit" class="waitlist-submit" id="submitBtn">Notify Me</button>
+      <button type="submit" class="newsletter-submit" id="submitBtn">Subscribe</button>
     </form>
-    <p class="waitlist-fine">US numbers only. No spam — that's kind of our thing.</p>
-    <p class="waitlist-success" id="successMsg"></p>
-    <p class="waitlist-error" id="errorMsg" style="display:none; margin-top:14px; font-size:0.78rem; color:#dc2626;"></p>
+    <p class="newsletter-fine">No spam — that's kind of our thing.</p>
+    <p class="newsletter-success" id="successMsg"></p>
+    <p id="errorMsg" style="display:none; margin-top:14px; font-size:0.78rem; color:#dc2626;"></p>
   </section>
 
   <!-- DISCLOSURE -->
@@ -623,7 +555,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <span>📬</span> Pulp<sup class="tm">&#x2122;</sup>
+      <span>📬</span> Pulp<sup class="tm" style="margin-left:0;">&#x2122;</sup>
     </div>
     <div class="footer-links">
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
@@ -649,42 +581,23 @@
       appStoreBtn.href = 'itms-apps://itunes.apple.com/us/app/pulp-stop-junk-mail/id6762067212';
     }
 
-    function formatPhone(val) {
-      val = val.replace(/[^0-9]/g, '');
-      if (val.length > 10) val = val.substring(0, 10);
-      if (val.length >= 7) {
-        return '(' + val.substring(0,3) + ') ' + val.substring(3,6) + '-' + val.substring(6);
-      } else if (val.length >= 4) {
-        return '(' + val.substring(0,3) + ') ' + val.substring(3);
-      } else if (val.length >= 1) {
-        return '(' + val;
-      }
-      return val;
-    }
-
-    var phoneInput = document.getElementById('phoneInput');
-    phoneInput.addEventListener('input', function(e) {
-      e.target.value = formatPhone(e.target.value);
-    });
-
     var cooldown = false;
 
-    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       if (cooldown) return;
 
       var btn = document.getElementById('submitBtn');
       var successMsg = document.getElementById('successMsg');
       var errorMsg = document.getElementById('errorMsg');
-      var rawPhone = phoneInput.value.replace(/[^0-9]/g, '');
+      var email = document.getElementById('emailInput').value.trim();
 
-      if (rawPhone.length !== 10) {
-        errorMsg.textContent = 'Please enter a valid 10-digit US phone number.';
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMsg.textContent = 'Please enter a valid email address.';
         errorMsg.style.display = 'block';
         return;
       }
 
-      var e164Phone = '+1' + rawPhone;
       cooldown = true;
       btn.disabled = true;
       btn.textContent = 'Saving...';
@@ -699,34 +612,32 @@
             'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
             'Prefer': 'return=minimal'
           },
-          body: JSON.stringify({ phone: e164Phone })
+          body: JSON.stringify({ email: email, source: 'website' })
         });
 
         if (response.status === 201) {
-          document.getElementById('waitlistForm').style.display = 'none';
-          successMsg.textContent = "You're on the list. We'll be in touch.";
+          document.getElementById('newsletterForm').style.display = 'none';
+          successMsg.textContent = "You're in. We'll be in touch.";
           successMsg.style.display = 'block';
         } else if (response.status === 409) {
-          errorMsg.textContent = "That number is already on the list - you're all set!";
+          errorMsg.textContent = "That email is already subscribed — you're all set!";
           errorMsg.style.display = 'block';
           btn.disabled = false;
-          btn.textContent = 'Notify Me';
+          btn.textContent = 'Subscribe';
           cooldown = false;
         } else {
           throw new Error('Unexpected: ' + response.status);
         }
       } catch(err) {
-        console.error('Waitlist error:', err);
+        console.error('Newsletter error:', err);
         errorMsg.textContent = 'Something went wrong. Please try again.';
         errorMsg.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Notify Me';
+        btn.textContent = 'Subscribe';
         setTimeout(function() { cooldown = false; }, 30000);
       }
 
-      setTimeout(function() {
-        cooldown = false;
-      }, 30000);
+      setTimeout(function() { cooldown = false; }, 30000);
     });
 
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
