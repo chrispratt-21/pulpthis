@@ -309,6 +309,42 @@
       font-weight: 300;
     }
 
+    /* ── FOR MAILERS BAND ── */
+    .mailer-band {
+      background: var(--teal);
+      padding: 80px 32px;
+      text-align: center;
+    }
+
+    .mailer-band .section-label { color: rgba(255,255,255,0.6); }
+    .mailer-band .section-title { color: var(--white); margin-bottom: 20px; }
+
+    .mailer-band-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .mailer-band-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--white);
+      color: var(--teal);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .mailer-band-btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
     /* ── NEWSLETTER ── */
     .newsletter {
       background: var(--cream);
@@ -426,7 +462,7 @@
       nav { padding: 20px 24px; }
       .hero-content { padding: 60px 24px 100px; }
       .store-buttons { flex-direction: column; align-items: center; }
-      .how, .why, .newsletter { padding: 80px 24px; }
+      .how, .why, .newsletter, .mailer-band { padding: 80px 24px; }
     }
   </style>
 </head>
@@ -517,6 +553,16 @@
     </div>
   </section>
 
+  <!-- FOR MAILERS -->
+  <section class="mailer-band">
+    <p class="section-label">For Mailers</p>
+    <h2 class="section-title">Your mail. Their inbox. Their choice.</h2>
+    <p class="mailer-band-sub">
+      Are you a direct mail marketer? Find out how Pulp can help you reach only the people who want to hear from you.
+    </p>
+    <a href="https://pulpthis.com/mailers" class="mailer-band-btn">Learn More</a>
+  </section>
+
   <!-- NEWSLETTER -->
   <section class="newsletter" id="newsletter">
     <p class="section-label">Stay in the Loop</p>
@@ -561,6 +607,7 @@
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
       <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>
       <a href="https://pulpthis.com/terms-of-service">Terms of Service</a>
+      <a href="https://pulpthis.com/mailers">For Mailers</a>
     </div>
     <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
   </footer>
@@ -604,7 +651,7 @@
       errorMsg.style.display = 'none';
 
       try {
-        var response = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        var response = await fetch(SUPABASE_URL + '/rest/v1/newsletter_subscribers', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
