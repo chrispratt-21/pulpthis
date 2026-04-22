@@ -505,7 +505,7 @@
         <span class="nav-logo-icon">📬</span>
         <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
       </a>
-      <a href="#waitlist" class="nav-link">Get Early Access</a>
+      <a href="#download" class="nav-link">Download</a>
     </nav>
 
     <div class="hero-content">
@@ -521,13 +521,12 @@
       </p>
       <div class="hero-cta">
         <div class="store-buttons">
-          <a href="#waitlist" class="store-btn store-btn-primary">
-            <span class="store-btn-icon">🍎</span>
+          <a href="https://apps.apple.com/us/app/pulp-stop-junk-mail/id6762067212" id="appStoreBtn" class="store-btn store-btn-primary">
+            <span class="store-btn-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="24" viewBox="0 0 170 200"><path d="M150.4 106.7c-.3-30.8 25.1-45.6 26.3-46.4-14.3-20.9-36.5-23.8-44.5-24.1-19-.2-37 11.1-46.6 11.1-9.6 0-24.5-10.8-40.3-10.5-20.8.3-40 12.1-50.7 30.7-21.6 37.5-5.5 93 15.5 123.4 10.3 14.9 22.6 31.6 38.7 31 15.5-.6 21.4-10.1 40.1-10.1 18.7 0 23.9 10.1 40.3 9.8 16.7-.3 27.3-15.2 37.5-30.2 11.8-17.3 16.7-34.1 17-35-.4-.1-32.8-12.6-33.3-50.7zM119.5 24c8.6-10.4 14.4-24.8 12.8-39.2-12.4.5-27.4 8.3-36.3 18.7-8 9.2-15 23.9-13.1 38 13.8 1.1 27.9-7.1 36.6-17.5z" fill="#1B3868"/></svg></span>
             <span class="store-btn-label">
               <small>Download on the</small>
               <span>App Store</span>
             </span>
-            <span class="coming-soon-badge">Soon</span>
           </a>
           <a href="https://play.google.com/store/apps/details?id=com.fletcherstreet.pulp" id="googlePlayBtn" class="store-btn store-btn-secondary">
             <span class="store-btn-icon">▶</span>
@@ -537,9 +536,7 @@
             </span>
           </a>
         </div>
-        <p class="waitlist-note">
-          iOS coming soon — <a href="#waitlist">join the waitlist</a> for early access.
-        </p>
+
       </div>
     </div>
   </section>
@@ -595,12 +592,12 @@
     </div>
   </section>
 
-  <!-- WAITLIST -->
-  <section class="waitlist" id="waitlist">
-    <p class="section-label">Early Access</p>
-    <h2 class="section-title">Be first in line.</h2>
+  <!-- DOWNLOAD -->
+  <section class="waitlist" id="download">
+    <p class="section-label">Available Now</p>
+    <h2 class="section-title">Download Pulp&#x2122;.</h2>
     <p style="color: var(--grey); font-size: 0.95rem; max-width: 400px; margin: 0 auto; line-height: 1.65; font-weight: 300;">
-      Pulp&#x2122; is coming soon to iOS. Drop your phone number and we'll let you know the moment it's available.
+      Available on iPhone and Android. Free to download.
     </p>
     <form class="waitlist-form" id="waitlistForm">
       <input
@@ -634,7 +631,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <span>📬</span> Pulp<sup class="tm" style="margin-left:-2px;">&#x2122;</sup>
+      <span>📬</span> Pulp<sup class="tm">&#x2122;</sup>
     </div>
     <div class="footer-links">
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
@@ -648,10 +645,16 @@
     var SUPABASE_URL = 'https://igpyenjxzwkibkbpnpwu.supabase.co';
     var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlncHllbmp4endraWJrYnBucHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzY1MDcsImV4cCI6MjA5MTIxMjUwN30.m_LeOEm5ikt6HCFIyxYh4CJgDPM38m0maFxZ0ayANOo';
 
-    // On mobile, deep-link directly into the Play Store app
+    // Deep-link into stores on mobile
     var googlePlayBtn = document.getElementById('googlePlayBtn');
-    if (/Android/i.test(navigator.userAgent)) {
+    var appStoreBtn = document.getElementById('appStoreBtn');
+    var isAndroid = /Android/i.test(navigator.userAgent);
+    var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (isAndroid) {
       googlePlayBtn.href = 'market://details?id=com.fletcherstreet.pulp';
+    }
+    if (isIOS) {
+      appStoreBtn.href = 'itms-apps://itunes.apple.com/us/app/pulp-stop-junk-mail/id6762067212';
     }
 
     function formatPhone(val) {
