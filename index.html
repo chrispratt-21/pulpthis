@@ -604,7 +604,7 @@
       errorMsg.style.display = 'none';
 
       try {
-        var response = await fetch(SUPABASE_URL + '/rest/v1/waitlist', {
+        var response = await fetch(SUPABASE_URL + '/rest/v1/newsletter_subscribers', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
