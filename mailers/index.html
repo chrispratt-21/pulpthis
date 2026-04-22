@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Mailers — Pulp&#x2122;</title>
+  <meta name="description" content="Are you a direct mail marketer? Get verified opt-out requests delivered monthly, straight from the people who received your mail.">
+  <meta property="og:title" content="For Mailers — Pulp&#x2122;">
+  <meta property="og:description" content="Get verified opt-out requests delivered monthly, straight from the people who received your mail.">
+  <meta property="og:url" content="https://pulpthis.com/mailers">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B3868;
+      --teal: #15515a;
+      --teal-light: #1d6b77;
+      --cream: #faf8f4;
+      --white: #ffffff;
+      --grey: #6b7280;
+      --light-grey: #e5e7eb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    .tm {
+      font-size: 0.6em;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--teal);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 48px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .nav-back {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-back:hover { color: var(--white); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--teal);
+      padding: 100px 32px 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(27,56,104,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(27,56,104,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cta-link {
+      display: inline-block;
+      padding: 15px 36px;
+      background: var(--white);
+      color: var(--teal);
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-cta-link:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    /* ── VALUE PROPS ── */
+    .value {
+      background: var(--white);
+      padding: 100px 32px;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      text-align: center;
+      color: var(--navy);
+      margin-bottom: 64px;
+      line-height: 1.15;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .value-grid { grid-template-columns: 1fr; }
+    }
+
+    .value-card {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .value-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .value-desc {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      background: var(--navy);
+      padding: 100px 32px;
+      text-align: center;
+    }
+
+    .how .section-title { color: var(--white); }
+    .how .section-label { color: rgba(255,255,255,0.5); }
+
+    .how-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .how-steps { grid-template-columns: 1fr; }
+    }
+
+    .how-step {
+      text-align: left;
+    }
+
+    .how-step-number {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .how-step-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .how-step-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── SIGNUP FORM ── */
+    .signup {
+      background: var(--cream);
+      padding: 100px 32px;
+      text-align: center;
+    }
+
+    .signup-card {
+      background: var(--white);
+      border-radius: 20px;
+      border: 1.5px solid var(--light-grey);
+      padding: 52px 48px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      .signup-card { padding: 36px 24px; }
+    }
+
+    .signup-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .signup-sub {
+      font-size: 0.92rem;
+      color: var(--grey);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .field-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .field-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--grey);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .field-hint {
+      display: block;
+      font-size: 0.7rem;
+      color: #9ca3af;
+      margin-top: 4px;
+    }
+
+    .field-input {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--light-grey);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .field-input:focus { border-color: var(--teal); }
+    .field-input::placeholder { color: #9ca3af; }
+
+    .field-select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1.5px solid var(--light-grey);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .field-select:focus { border-color: var(--teal); }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover { background: var(--teal-light); transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .form-success-icon { font-size: 48px; margin-bottom: 16px; }
+
+    .form-success-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .form-success-text {
+      font-size: 0.92rem;
+      color: var(--grey);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .form-error {
+      display: none;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: #dc2626;
+      text-align: left;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111827;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 80px 24px 100px; }
+      .value, .how, .signup { padding: 80px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://pulpthis.com" class="nav-logo">
+      <span style="font-size:22px;">📬</span>
+      <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
+    </a>
+    <a href="https://pulpthis.com" class="nav-back">← Back to Pulp</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">For Direct Mail Marketers</p>
+    <h1 class="hero-headline">
+      Reach the people<br>
+      <em>who want to hear from you.</em>
+    </h1>
+    <p class="hero-sub">
+      Are you a direct mail marketer? Get verified opt-out requests delivered monthly, straight from the people who received your mail. Reduce wasted spend. Protect your brand. Mail smarter.
+    </p>
+    <a href="#signup" class="hero-cta-link">Request Access</a>
+  </section>
+
+  <!-- VALUE PROPS -->
+  <section class="value">
+    <p class="section-label">Why Pulp for Mailers</p>
+    <h2 class="section-title">Better data.<br>Better results.</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <span class="value-icon">✅</span>
+        <p class="value-title">Verified opt-outs</p>
+        <p class="value-desc">Every request comes from a real person at a real address who photographed your mail and asked to be removed. No guesswork, no bad data.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">📬</span>
+        <p class="value-title">Monthly suppression files</p>
+        <p class="value-desc">Receive a clean, formatted suppression list each month. Drop it directly into your mailing list management system before your next campaign.</p>
+      </div>
+      <div class="value-card">
+        <span class="value-icon">💰</span>
+        <p class="value-title">Stop mailing the unwilling</p>
+        <p class="value-desc">Every piece sent to someone who doesn't want it is money wasted on postage, printing, and fulfillment. Opt-out data pays for itself.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Simple.<br>Straightforward.</h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-number">1</div>
+        <p class="how-step-title">You request access</p>
+        <p class="how-step-desc">Fill out the form below. We review every request manually and reach out within 2 business days to discuss your needs.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-number">2</div>
+        <p class="how-step-title">We match your mail</p>
+        <p class="how-step-desc">Our team identifies opt-out requests tied to your company from our growing database of verified submissions.</p>
+      </div>
+      <div class="how-step">
+        <div class="how-step-number">3</div>
+        <p class="how-step-title">You receive your file</p>
+        <p class="how-step-desc">Each month, you receive a suppression file with the names and addresses of people who have asked to be removed from your lists.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP FORM -->
+  <section class="signup" id="signup">
+    <p class="section-label">Get Started</p>
+    <h2 class="section-title">Request Access.</h2>
+
+    <div class="signup-card">
+      <div id="formWrap">
+        <p class="signup-sub">
+          Tell us a little about your organization. We review every request and will follow up within 2 business days.
+        </p>
+
+        <div class="field-group">
+          <label class="field-label" for="companyName">Company Name *</label>
+          <input type="text" class="field-input" id="companyName" placeholder="Acme Direct Marketing" autocomplete="organization" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="contactName">Contact Name *</label>
+          <input type="text" class="field-input" id="contactName" placeholder="Jane Smith" autocomplete="name" />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="contactEmail">Email Address *</label>
+          <input type="email" class="field-input" id="contactEmail" placeholder="jane@yourcompany.com" autocomplete="email" />
+          <span class="field-hint">Please use your company email address (e.g. you@yourcompany.com)</span>
+        </div>
+
+        <div class="field-group">
+          <label class="field-label" for="monthlyVolume">Approximate Monthly Mail Volume</label>
+          <select class="field-select" id="monthlyVolume">
+            <option value="">Select a range...</option>
+            <option value="under_10k">Under 10,000 pieces</option>
+            <option value="10k_to_100k">10,000 to 100,000 pieces</option>
+            <option value="100k_to_500k">100,000 to 500,000 pieces</option>
+            <option value="500k_plus">500,000+ pieces</option>
+          </select>
+        </div>
+
+        <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">Request Access</button>
+        <p class="form-error" id="errorMsg"></p>
+      </div>
+
+      <div class="form-success" id="successMsg">
+        <div class="form-success-icon">📬</div>
+        <p class="form-success-title">Request received.</p>
+        <p class="form-success-text">Thanks for your interest. We'll review your request and follow up within 2 business days.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span>📬</span> Pulp<sup class="tm" style="margin-left:0;">&#x2122;</sup>
+    </div>
+    <div class="footer-links">
+      <a href="https://pulpthis.com">Home</a>
+      <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
+      <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>
+      <a href="https://pulpthis.com/terms-of-service">Terms of Service</a>
+    </div>
+    <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
+  </footer>
+
+  <script>
+    var SUPABASE_URL = 'https://igpyenjxzwkibkbpnpwu.supabase.co';
+    var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlncHllbmp4endraWJrYnBucHd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MzY1MDcsImV4cCI6MjA5MTIxMjUwN30.m_LeOEm5ikt6HCFIyxYh4CJgDPM38m0maFxZ0ayANOo';
+
+    var cooldown = false;
+
+    async function handleSubmit() {
+      if (cooldown) return;
+
+      var btn = document.getElementById('submitBtn');
+      var errorMsg = document.getElementById('errorMsg');
+      var companyName = document.getElementById('companyName').value.trim();
+      var contactName = document.getElementById('contactName').value.trim();
+      var contactEmail = document.getElementById('contactEmail').value.trim();
+      var monthlyVolume = document.getElementById('monthlyVolume').value;
+
+      errorMsg.style.display = 'none';
+
+      if (!companyName) {
+        errorMsg.textContent = 'Please enter your company name.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+      if (!contactName) {
+        errorMsg.textContent = 'Please enter your name.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+      if (!contactEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactEmail)) {
+        errorMsg.textContent = 'Please enter a valid email address.';
+        errorMsg.style.display = 'block';
+        return;
+      }
+
+      cooldown = true;
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      try {
+        var response = await fetch(SUPABASE_URL + '/rest/v1/mailer_leads', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            company_name: companyName,
+            contact_name: contactName,
+            email: contactEmail,
+            monthly_volume: monthlyVolume || null
+          })
+        });
+
+        if (response.status === 201) {
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('successMsg').style.display = 'block';
+        } else {
+          throw new Error('Unexpected status: ' + response.status);
+        }
+      } catch(err) {
+        console.error('Mailer lead error:', err);
+        errorMsg.textContent = 'Something went wrong. Please try again or email us directly.';
+        errorMsg.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Request Access';
+        setTimeout(function() { cooldown = false; }, 30000);
+      }
+    }
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
