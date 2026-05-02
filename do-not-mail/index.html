@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why isn't there a Do Not Mail list? — Pulp&#x2122;</title>
+  <meta name="description" content="There's a Do Not Call registry. Why isn't there a Do Not Mail registry? A clear-eyed look at why federal junk mail legislation has never passed, what's actually available, and what Pulp is doing about it.">
+  <meta property="og:title" content="Why isn't there a Do Not Mail list? — Pulp&#x2122;">
+  <meta property="og:description" content="A clear-eyed look at why federal junk mail legislation has never passed, what's actually available, and what Pulp is doing about it.">
+  <meta property="og:image" content="https://pulpthis.com/og-image.png">
+  <meta property="og:url" content="https://pulpthis.com/do-not-mail">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="icon.png">
+  <link rel="apple-touch-icon" href="icon.png">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1B3868;
+      --teal: #15515a;
+      --teal-light: #1d6b77;
+      --cream: #faf8f4;
+      --white: #ffffff;
+      --grey: #6b7280;
+      --light-grey: #e5e7eb;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--navy);
+      overflow-x: hidden;
+    }
+
+    .tm {
+      font-size: 0.6em;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 2px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+    }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(21,81,90,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 48px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon { font-size: 24px; }
+
+    .nav-logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--white);
+      font-weight: 700;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-right > * + * { margin-left: 24px; }
+    @supports (gap: 24px) { .nav-right > * + * { margin-left: 0; } }
+
+    .nav-link {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-link:hover { color: rgba(255,255,255,0.8); }
+
+    .nav-social {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-social > a + a { margin-left: 12px; }
+    @supports (gap: 12px) { .nav-social > a + a { margin-left: 0; } }
+
+    .nav-social a {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-social a:hover { color: rgba(255,255,255,0.9); }
+
+    .nav-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 100px 32px 80px;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    .page-hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal-light);
+      margin-bottom: 24px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 28px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .page-hero-sub {
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      color: rgba(255,255,255,0.6);
+      max-width: 580px;
+      line-height: 1.7;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── ARTICLE BODY ── */
+    .article {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 100px 32px 80px;
+    }
+
+    .article h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-top: 64px;
+      margin-bottom: 24px;
+    }
+
+    .article h2:first-child { margin-top: 0; }
+
+    .article p {
+      font-size: 1.02rem;
+      color: var(--navy);
+      line-height: 1.75;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .article p strong {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .article a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-decoration-color: rgba(21,81,90,0.3);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s;
+    }
+
+    .article a:hover {
+      text-decoration-color: var(--teal);
+    }
+
+    .article ul {
+      margin: 0 0 24px 24px;
+      padding: 0;
+    }
+
+    .article ul li {
+      font-size: 1.02rem;
+      color: var(--navy);
+      line-height: 1.75;
+      margin-bottom: 10px;
+      font-weight: 300;
+    }
+
+    .article ul li strong { font-weight: 600; }
+
+    .pullquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--teal);
+      line-height: 1.4;
+      padding: 32px 0;
+      margin: 32px 0;
+      border-top: 1px solid var(--light-grey);
+      border-bottom: 1px solid var(--light-grey);
+      text-align: center;
+    }
+
+    .factbox {
+      background: var(--white);
+      border-left: 3px solid var(--teal);
+      padding: 28px 32px;
+      margin: 32px 0;
+      border-radius: 0 10px 10px 0;
+    }
+
+    .factbox-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .factbox p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--teal);
+      padding: 80px 32px;
+      text-align: center;
+    }
+
+    .cta-band-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 16px;
+    }
+
+    .cta-band h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .cta-band-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    .cta-band-btn {
+      display: inline-block;
+      padding: 14px 32px;
+      background: var(--white);
+      color: var(--teal);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cta-band-btn:hover {
+      background: #f0f0f0;
+      transform: translateY(-2px);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #111827;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .footer-social > a + a { margin-left: 16px; }
+    @supports (gap: 16px) { .footer-social > a + a { margin-left: 0; } }
+
+    .footer-social a {
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-social a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .footer-links > a + a { margin-left: 24px; }
+    @supports (gap: 24px) { .footer-links > a + a { margin-left: 0; } }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
+      .nav-right { gap: 16px; }
+      .page-hero { padding: 60px 24px 60px; }
+      .article { padding: 64px 24px 60px; }
+      .cta-band { padding: 64px 24px; }
+      .factbox { padding: 24px; }
+      .pullquote { font-size: 1.2rem; padding: 24px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <nav>
+      <a href="/" class="nav-logo">
+        <span class="nav-logo-icon">📬</span>
+        <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
+      </a>
+      <div class="nav-right">
+        <a href="/" class="nav-link">Home</a>
+        <div class="nav-social">
+          <a href="https://www.tiktok.com/@pulpjunkmail" aria-label="Pulp on TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.18a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.61z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/pulpjunkmail" aria-label="Pulp on Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.16c3.2 0 3.58 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33 0 7.05.07 5.78.13 4.9.34 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.34 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s0 3.67.07 4.95c.06 1.27.27 2.15.56 2.91.3.79.7 1.46 1.38 2.13.67.68 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67 0 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.13-1.38 5.87 5.87 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.07-1.28.07-1.69.07-4.95s0-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.34 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-hero">
+      <p class="page-hero-eyebrow">From the Pulp team</p>
+      <h1>Why isn't there a <em>Do Not Mail</em> list?</h1>
+      <p class="page-hero-sub">
+        There's one for phone calls. Email is regulated, sort of. So why does your mailbox keep filling up with mail you never asked for? The honest answer is more interesting than you'd think.
+      </p>
+    </div>
+  </header>
+
+  <!-- ARTICLE -->
+  <article class="article">
+
+    <h2>The short answer</h2>
+    <p>
+      In the United States, there is no federal law requiring direct mail marketers to honor opt-out requests, and no government-run "Do Not Mail" registry equivalent to the FTC's Do Not Call list. The closest thing is <strong>DMAchoice</strong>, a private list run by the Association of National Advertisers. It's voluntary, it costs $6 to register, and it only binds the companies that choose to participate.
+    </p>
+    <p>
+      The reasons this is the case are partly historical, partly economic, and partly constitutional. They explain a lot about why your mailbox looks the way it does — and why an app like Pulp had to exist.
+    </p>
+
+    <h2>Do Not Call worked. Why hasn't Do Not Mail?</h2>
+    <p>
+      The National Do Not Call Registry was created by Congress in 2003 and is widely considered one of the most successful consumer protection programs in modern American history. Within months of its launch, more than 50 million phone numbers were registered. Today the registry contains over 240 million numbers.
+    </p>
+    <p>
+      The success of Do Not Call inspired a wave of state-level "Do Not Mail" proposals starting in the mid-2000s. Since 2007, at least 19 state legislatures have introduced bills that would create state-run Do Not Mail registries — in Colorado, Maryland, Michigan, Texas, Washington, and elsewhere. The proposals included substantial penalties, often $1,000 to $2,000 per violation, for marketers who knowingly mailed people on the registry.
+    </p>
+    <p>
+      None of them passed.
+    </p>
+
+    <div class="pullquote">
+      Since 2007, at least 19 states have introduced Do Not Mail legislation. None of it has become law.
+    </div>
+
+    <h2>Three reasons the bills keep failing</h2>
+
+    <p><strong>1. The Postal Service depends on bulk mail.</strong></p>
+    <p>
+      Direct mail is a meaningful share of USPS revenue. Bulk mail (technically called "marketing mail" by USPS) helps subsidize the rest of the postal infrastructure — first-class mail, rural delivery, the universal service mandate. Reduce bulk mail dramatically and postage rates have to rise on everything else, or routes get cut. That's why the postal industry has historically opposed Do Not Mail legislation aggressively. In 2008 testimony, the Postmaster General argued such initiatives would "threaten the viability of the mail in and among the affected states."
+    </p>
+
+    <p><strong>2. Direct mail has stronger free speech protections than telemarketing.</strong></p>
+    <p>
+      The legal framework matters here. A phone call interrupts you — it makes a sound, it demands a response in the moment, the recipient has no easy way to filter it before it happens. Mail, by contrast, sits in your mailbox until you decide to look at it. Courts have generally treated direct mail as protected commercial speech in a way that telemarketing isn't. That makes legislation that would ban direct mail to specific addresses harder to defend constitutionally.
+    </p>
+
+    <p><strong>3. Direct mail is a $40+ billion industry with sophisticated lobbying.</strong></p>
+    <p>
+      The Association of National Advertisers, the Direct Marketing Association (now part of ANA), and various postal industry groups oppose new restrictions on direct mail with significant resources. Combined with the postal service's economic interest in preserving bulk mail volume, that creates a political coalition strong enough to stop most state-level proposals before they reach a floor vote.
+    </p>
+
+    <h2>What you can actually do today</h2>
+    <p>
+      The patchwork of options that exists today is genuinely confusing, and most consumers don't know what's available. Here's the honest landscape:
+    </p>
+
+    <div class="factbox">
+      <div class="factbox-label">DMAchoice</div>
+      <p>
+        Run by the Association of National Advertisers. Costs $6 to register, lasts 10 years. Member companies are required to scrub against it. The estimated reduction is around 80% of mail from participating companies, but only ANA members participate — non-members aren't bound by it at all.
+      </p>
+    </div>
+
+    <div class="factbox">
+      <div class="factbox-label">Credit and Insurance Offers</div>
+      <p>
+        These are governed separately. You can opt out of prescreened credit and insurance offers (the most common type of unsolicited "URGENT" envelope) at <a href="https://www.optoutprescreen.com" target="_blank" rel="noopener">optoutprescreen.com</a>, a free service operated by the major credit bureaus. Five-year or permanent opt-out available.
+      </p>
+    </div>
+
+    <div class="factbox">
+      <div class="factbox-label">EDDM (Bulk Mail)</div>
+      <p>
+        That mail addressed to "RESIDENT" or "LOCAL POSTAL CUSTOMER" is technically a different category — Every Door Direct Mail. It's not addressed to you specifically; it's addressed to your USPS carrier route. There is no list to remove yourself from. This is the category that nothing currently solves.
+      </p>
+    </div>
+
+    <div class="factbox">
+      <div class="factbox-label">Active Legislation Worth Watching</div>
+      <p>
+        New York Senate Bill S9440, introduced March 2026, would create a statewide "Do Not Disturb Registry" covering calls, texts, emails, and physical mail, with $1,500 fines per violation. It's currently in the Consumer Protection Committee. Whether it passes is another question.
+      </p>
+    </div>
+
+    <h2>Where Pulp fits in</h2>
+    <p>
+      We built Pulp because the existing options aren't enough. DMAchoice is paywalled, narrow in scope, and most people have never heard of it. Credit bureau opt-outs only handle a sliver of what you actually receive. EDDM has no opt-out at all. The legal infrastructure that would solve this at the federal level isn't coming any time soon.
+    </p>
+    <p>
+      So we made the smallest useful thing: an app where you snap a photo of any piece of mail you don't want, and we work to get you off the list. We can't promise every mailer will comply — there's no law forcing them to. But every submission goes into a verified record of your opt-out request, and every household that joins makes the consumer signal a little harder to ignore.
+    </p>
+    <p>
+      The honest version: we're a stopgap until something better exists. If a federal Do Not Mail registry is ever created, we'll celebrate it, and Pulp will probably still be useful for the millions of people who never proactively register, plus the EDDM mail no government registry will cover.
+    </p>
+    <p>
+      Until then, <a href="/">there's Pulp</a>.
+    </p>
+
+  </article>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <p class="cta-band-label">Take Action</p>
+    <h2>Snap a photo. Skip the mail.</h2>
+    <p class="cta-band-sub">
+      Free on iOS and Android. We do the work to get you off the list.
+    </p>
+    <a href="/" class="cta-band-btn">Get Pulp</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <span>📬</span> Pulp<sup class="tm" style="margin-left:0;">&#x2122;</sup>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.tiktok.com/@pulpjunkmail" aria-label="Pulp on TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.18a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.61z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/pulpjunkmail" aria-label="Pulp on Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.16c3.2 0 3.58 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33 0 7.05.07 5.78.13 4.9.34 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.34 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s0 3.67.07 4.95c.06 1.27.27 2.15.56 2.91.3.79.7 1.46 1.38 2.13.67.68 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67 0 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.13-1.38 5.87 5.87 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.07-1.28.07-1.69.07-4.95s0-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.34 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>
+        </svg>
+      </a>
+    </div>
+    <div class="footer-links">
+      <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/terms-of-service">Terms of Service</a>
+      <a href="/mailers">For Mailers</a>
+      <a href="/do-not-mail">Do Not Mail</a>
+    </div>
+    <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
+  </footer>
+
+</body>
+</html>
