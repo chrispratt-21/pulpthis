@@ -437,6 +437,9 @@
       margin-bottom: 24px;
     }
 
+    .footer-links > a + a { margin-left: 24px; }
+    @supports (gap: 24px) { .footer-links > a + a { margin-left: 0; } }
+
     .footer-links a {
       font-size: 0.78rem;
       color: rgba(255,255,255,0.4);
@@ -457,9 +460,83 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── NAV RIGHT GROUP & SOCIAL ── */
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-right > * + * {
+      margin-left: 24px;
+    }
+
+    @supports (gap: 24px) {
+      .nav-right > * + * { margin-left: 0; }
+    }
+
+    .nav-social {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .nav-social > a + a {
+      margin-left: 12px;
+    }
+
+    @supports (gap: 12px) {
+      .nav-social > a + a { margin-left: 0; }
+    }
+
+    .nav-social a {
+      color: rgba(255,255,255,0.5);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-social a:hover { color: rgba(255,255,255,0.9); }
+
+    .nav-social svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* ── FOOTER SOCIAL ── */
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .footer-social > a + a {
+      margin-left: 16px;
+    }
+
+    @supports (gap: 16px) {
+      .footer-social > a + a { margin-left: 0; }
+    }
+
+    .footer-social a {
+      color: rgba(255,255,255,0.4);
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-social a:hover { color: rgba(255,255,255,0.85); }
+
+    .footer-social svg {
+      width: 20px;
+      height: 20px;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      nav { padding: 20px 24px; }
+      nav { padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
+      .nav-right { gap: 16px; }
       .hero-content { padding: 60px 24px 100px; }
       .store-buttons { flex-direction: column; align-items: center; }
       .how, .why, .newsletter, .mailer-band { padding: 80px 24px; }
@@ -475,7 +552,22 @@
         <span class="nav-logo-icon">📬</span>
         <span class="nav-logo-text">Pulp<sup class="tm">&#x2122;</sup></span>
       </a>
-      <a href="#newsletter" class="nav-link">Stay in the Loop</a>
+      <div class="nav-right">
+        <a href="/do-not-mail" class="nav-link">Do Not Mail</a>
+        <a href="#newsletter" class="nav-link">Stay in the Loop</a>
+        <div class="nav-social">
+          <a href="https://www.tiktok.com/@pulpjunkmail" aria-label="Pulp on TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.18a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.61z"/>
+            </svg>
+          </a>
+          <a href="https://www.instagram.com/pulpjunkmail" aria-label="Pulp on Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.16c3.2 0 3.58 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33 0 7.05.07 5.78.13 4.9.34 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.34 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s0 3.67.07 4.95c.06 1.27.27 2.15.56 2.91.3.79.7 1.46 1.38 2.13.67.68 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67 0 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.13-1.38 5.87 5.87 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.07-1.28.07-1.69.07-4.95s0-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.34 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </nav>
 
     <div class="hero-content">
@@ -603,11 +695,24 @@
     <div class="footer-logo">
       <span>📬</span> Pulp<sup class="tm" style="margin-left:0;">&#x2122;</sup>
     </div>
+    <div class="footer-social">
+      <a href="https://www.tiktok.com/@pulpjunkmail" aria-label="Pulp on TikTok" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.18a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.61z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/pulpjunkmail" aria-label="Pulp on Instagram" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2.16c3.2 0 3.58 0 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s0 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58 0-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s0-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33 0 7.05.07 5.78.13 4.9.34 4.14.63a5.86 5.86 0 0 0-2.13 1.38A5.86 5.86 0 0 0 .63 4.14C.34 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s0 3.67.07 4.95c.06 1.27.27 2.15.56 2.91.3.79.7 1.46 1.38 2.13.67.68 1.34 1.08 2.13 1.38.76.3 1.64.5 2.91.56C8.33 24 8.74 24 12 24s3.67 0 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.87 5.87 0 0 0 2.13-1.38 5.87 5.87 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.07-1.28.07-1.69.07-4.95s0-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.87 5.87 0 0 0-1.38-2.13A5.86 5.86 0 0 0 19.86.63C19.1.34 18.22.13 16.95.07 15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zm0 10.16A4 4 0 1 1 16 12a4 4 0 0 1-4 4zm6.41-11.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44z"/>
+        </svg>
+      </a>
+    </div>
     <div class="footer-links">
       <a href="https://thefletcherstreet.com">Fletcher Street Corporation</a>
       <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>
       <a href="https://pulpthis.com/terms-of-service">Terms of Service</a>
       <a href="https://pulpthis.com/mailers">For Mailers</a>
+      <a href="https://pulpthis.com/do-not-mail">Do Not Mail</a>
     </div>
     <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
   </footer>
