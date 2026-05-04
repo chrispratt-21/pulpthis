@@ -104,11 +104,11 @@
     }
 
     .nav-link {
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      font-weight: 400;
     }
 
     .nav-link:hover { color: rgba(255,255,255,0.8); }
@@ -699,7 +699,7 @@
       />
       <button type="submit" class="newsletter-submit" id="submitBtn">Subscribe</button>
     </form>
-    <p class="newsletter-fine">No spam - that's kind of our thing.</p>
+    <p class="newsletter-fine">No spam — that's kind of our thing.</p>
     <p class="newsletter-success" id="successMsg"></p>
     <p id="errorMsg" style="display:none; margin-top:14px; font-size:0.78rem; color:#dc2626;"></p>
   </section>
@@ -744,7 +744,7 @@
       <a href="https://pulpthis.com/privacy-policy">Privacy Policy</a>
       <a href="https://pulpthis.com/terms-of-service">Terms of Service</a>
       <a href="https://pulpthis.com/mailers">For Mailers</a>
-      <a href="https://pulpthis.com/do-not-mail">Do Not Mail</a>
+      <a href="https://pulpthis.com/do-not-mail">Do Not Mail?</a>
     </div>
     <p class="footer-copy">© 2026 Fletcher Street Corporation. All rights reserved. Pulp is a trademark of Fletcher Street Corporation.</p>
   </footer>
@@ -804,7 +804,7 @@
           successMsg.textContent = "You're in. We'll be in touch.";
           successMsg.style.display = 'block';
         } else if (response.status === 409) {
-          errorMsg.textContent = "That email is already subscribed - you're all set!";
+          errorMsg.textContent = "That email is already subscribed — you're all set!";
           errorMsg.style.display = 'block';
           btn.disabled = false;
           btn.textContent = 'Subscribe';
